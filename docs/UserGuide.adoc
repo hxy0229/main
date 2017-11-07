@@ -278,19 +278,19 @@ Locates the 1st person in the results of the `find` command.
 === Adding an event: `addEvent` (since v1.2)
 
 Adds a person to the address book +
-Format: `addEvent n/EVENT_NAME d/DD-MM-YY de/[EXTRA]`
+Format: `addEvent INDEX n/EVENT_NAME d/DD-MM-YY [e/EXTRA]`
 
 [TIP]
 The event extra description is optional, can use as a to-do list. +
-The event date is `yyyy-mm-dd` format.
+The event date is `dd-mm-yy` format in which `yy` is the last 2 digits of the year.
 
 
 Examples:
 
-* `addEvent n/Return 5$ d/2017-08-17 de/lunch money` +
-Add a new event with description.
-* `addEvent n/Project Meeting d/2017-11-25 de/ +
-Add a new event with empty description.
+* `addEvent 1 n/Return 5$ d/09-08-17 e/lunch money` +
+Add a new event associate with the 1st person in the list.
+* `addEvent 2 n/Project Meeting d/25-11-17 e/IS1103, read up on last week lecture` +
+Add a new event associate with the 2nd person in the list.
 
 === Deleting an event : `deleteEvent` (since v1.4)
 
@@ -373,10 +373,6 @@ The `redo` command fails as there are no `undo` commands executed previously.
 Clears all entries from the address book. +
 Format: `clear`
 
-=== Auto-reminder (since v1.5)
-
-NeoXPro Manager will remind the user events occur on the day when when starting the application.
-
 === Exiting the program : `exit`
 
 Exits the program. +
@@ -396,25 +392,17 @@ There is no need to save manually.
 
 * *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL b/BIRTHDAY a/ADDRESS [t/TAG]...` +
 e.g. `add n/James Ho p/22224444 e/jamesho@example.com b/1993/01/03 a/123, Clementi Rd, 1234665 t/friend t/colleague`
-* *Add an event* `addEvent n/EVENT_NAME d/DD-MM-YY de/[DESCRIPTION]` +
-e.g. `addEvent n/Return 5$ d/2017-08-17 de/lunch money` +
 * *Clear* : `clear`
-* *Delete a contact* : `delete INDEX` +
+* *Delete* : `delete INDEX` +
 e.g. `delete 3`
-* *Delete an event* : `deleteEvent INDEX` +
-e.g. `deleteEvent 2`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BIRTHDAY] [a/ADDRESS] [pr/PROFILE] [t/TAG]...` +
+* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BIRTHDAY] [a/ADDRESS] [t/TAG]...` +
 e.g. `edit 2 n/James Lee e/jameslee@example.com`
-* *Find via name* : `find KEYWORD [MORE_KEYWORDS]` +
+* *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
-* *Find via tag* : `findTag KEYWORD [MORE_KEYWORDS]` +
-e.g. `find friend nus`
 * *List* : `list`
 * *Help* : `help`
 * *Select* : `select INDEX` +
 e.g.`select 2`
-* *Locate* : `locate INDEX` +
-e.g.`select 3`
 * *History* : `history`
 * *Undo* : `undo`
 * *Redo* : `redo`
